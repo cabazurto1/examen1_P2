@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %} Agregar Producto {% endblock %}
+
+{% block content %}
+<h1>Agregar Producto</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ formulario.as_p }}
+    <button type="submit" class="btn btn-primary">Agregar</button>
+    <a href="{% url 'listar_productos' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

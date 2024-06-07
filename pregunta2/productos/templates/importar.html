@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Importar Productos{% endblock %}
+
+{% block content %}
+<h1>Importar Productos</h1>
+{% if error %}
+<div class="alert alert-danger">{{ error }}</div>
+{% endif %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="file" class="form-label">Seleccionar archivo CSV</label>
+        <input type="file" class="form-control" id="file" name="file" accept=".csv" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Importar</button>
+    <a href="{% url 'listar_productos' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}
